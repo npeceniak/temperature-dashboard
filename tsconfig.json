@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist" /* Redirect output structure to the directory. */,
+      "noImplicitAny": false, /* Raise error on expressions and declarations with an implied 'any' type. */
+      "module": "es6",
+      "target": "es5",
+      "jsx": "react",
+      "allowJs": true,
+      "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+      "lib": ["DOM"] /* Specify library files to be included in the compilation. */,
+      "declaration": true /* Generates corresponding '.d.ts' file. */,
+      "declarationDir": "./dist" /* Output directory for generated declaration files. */,
+      "sourceMap": true /* Generates corresponding '.map' file. */,
+      "rootDir": "./src", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+      "removeComments": true /* Do not emit comments to output. */,
+      "strict": true /* Enable all strict type-checking options. */,
+      "noUnusedLocals": false /* Report errors on unused locals. */,
+      "noUnusedParameters": false /* Report errors on unused parameters. */,
+      "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+      "esModuleInterop": true
+    },
+    "include": ["./src/**/*"]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "temperature-dashboard",
+  "version": "1.0.0",
+  "description": "Web dashboard for home temperature monitoring and logging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack --config webpack.config.js && npm run moveHtml",
+    "moveHtml": "cp ./src/index.html ./src/index.css ./dist",
+    "deploy": "scp -r ./dist/. root@webserver.lan:/var/www/history"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.2.1"
+  }
+}
