@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(196, 196, 196);
+}
+
+#selector {
+    max-width: 90%;
+    margin: auto;
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+}
+
+.chartContainer {
+    flex-grow: 1;
+    background-color: rgb(235, 235, 235);
+    width: 50%;
+}

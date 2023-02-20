@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<title>Dashboard</title>
+    <style>
+        body {
+            background-color: rgb(196, 196, 196);
+        }
+
+        #selector {
+            max-width: 90%;
+            margin: auto;
+        }
+
+        #mainContainer {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 90%;
+            margin: auto;
+        }
+
+        .chartContainer {
+            flex-grow: 1;
+            background-color: rgb(235, 235, 235);
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="selector">
+        <label>Graph Date:</label>
+
+        <input type="date" id="startDate">
+        <input type="date" id="endDate">
+        <label>Location:</label>
+        <select id="locations">
+            <option value="office">Office</option>
+            <option value="basement">Basement</option>
+            <option value="garage">Garage</option>
+            <option value="upstairs">Upstairs</option>
+            <option value="livingroom">Living Room</option>
+        </select>
+        <input type="button" id="selectorSubmit" value="Submit" />
+    </div>
+
+    <div id="mainContainer">
+        <!-- Page content -->
+    </div>
+</body>
+<script src="bundle.js"></script>
+</html>
+
