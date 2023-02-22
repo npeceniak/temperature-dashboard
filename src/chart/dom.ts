@@ -14,20 +14,30 @@ export class ChartContainer {
 
     buildChartContainer(title ="DEFAULT TITLE") {
         const container = document.createElement("div");
-        const titleElement = document.createElement("h3");
+        const titleElement = document.createElement("label");
         const closeButton = document.createElement("button");
+        const maximizeButton = document.createElement("button");
     
         closeButton.innerHTML = "Close";
+        closeButton.classList.add("closeButton");
+
+        maximizeButton.innerHTML = "+";
+        maximizeButton.classList.add("maxButton");
     
         closeButton.onclick = function() {container.remove();} 
+        maximizeButton.onclick = function() {
+            container.classList.replace("threeAcross", "oneAcross")
+        } 
     
         titleElement.innerHTML = title;
+        titleElement.classList.add("title");
         container.appendChild(titleElement);
     
-        // TODO break this up...
-        container.innerHTML += '<div><label>Temperature: </label><span id="temperatureValue"></span><span> - </span><label>Humidity: </label><span id="humidityValue"></span><br/><label>High/Low Today: </label><span id="highTempValue"></span><span> / </span><span id="lowTempValue"></span></div>'
         container.classList.add("chartContainer");
+        container.classList.add("threeAcross");
         container.appendChild(closeButton)
+
+        container.appendChild(maximizeButton);
         
         container.appendChild(this.chartCanvasElement);
     

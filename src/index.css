@@ -17,5 +17,29 @@ body {
 .chartContainer {
     flex-grow: 1;
     background-color: rgb(235, 235, 235);
+}
+
+.oneAcross {
+    width: 100%;
+}
+
+.twoAcross {
     width: 50%;
+}
+
+.threeAcross {
+    width: 30%;
+}
+
+.maxButton {
+    float: right
+}
+
+.closeButton {
+    float: right
+}
+
+.title {
+    font-size: 16pt;
+    font-weight: bold;
 }
