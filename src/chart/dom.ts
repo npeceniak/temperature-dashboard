@@ -26,7 +26,10 @@ export class ChartContainer {
     
         closeButton.onclick = function() {container.remove();} 
         maximizeButton.onclick = function() {
-            container.classList.replace("threeAcross", "oneAcross")
+            container.classList.toggle("twoAcross");
+            container.classList.toggle("oneAcross");
+            maximizeButton.innerHTML = "-"
+
         } 
     
         titleElement.innerHTML = title;
@@ -34,7 +37,7 @@ export class ChartContainer {
         container.appendChild(titleElement);
     
         container.classList.add("chartContainer");
-        container.classList.add("threeAcross");
+        container.classList.add("twoAcross");
         container.appendChild(closeButton)
 
         container.appendChild(maximizeButton);
