@@ -24,12 +24,13 @@ export class ChartContainer {
         maximizeButton.innerHTML = "+";
         maximizeButton.classList.add("maxButton");
     
-        closeButton.onclick = function() {container.remove();} 
-        maximizeButton.onclick = function() {
+        closeButton.onclick = () => {container.remove();} 
+        maximizeButton.onclick = () => {
             container.classList.toggle("twoAcross");
             container.classList.toggle("oneAcross");
             maximizeButton.innerHTML = "-"
-
+            // Move this node to top of page.
+            this.mainContainer.insertBefore(container, this.mainContainer.children[0])
         } 
     
         titleElement.innerHTML = title;
