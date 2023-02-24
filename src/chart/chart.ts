@@ -2,14 +2,24 @@ import Chart from 'chart.js/auto';
 
 import { ChartContainer } from './dom';
 
-export function renderMultiDayChart(inputData, location) {
+export function renderMultiDayChart(jsonResponse) {
 
     let temperature = []
+    let title = "";
 
-    inputData.forEach((day) => {
+    jsonResponse.forEach((day) => {
+
+        if (day.data) {
+            title = day.data.name
+        }
+
+        // If using old format convert to new data format...
+        if(Array.isArray(day)){
+            day = {history: day};
+        }
 
         // Filter down to just hourly data
-        const newarray = day.filter((x, i) => i%4===0)
+        const newarray = day.history.filter((x, i) => i%4===0)
 
         const data = newarray.map(element => {
             return {
@@ -22,7 +32,7 @@ export function renderMultiDayChart(inputData, location) {
     })
 
     const chartContainer = new ChartContainer();
-    chartContainer.buildChartContainer(location)
+    chartContainer.buildChartContainer(title)
 
     const ctx = chartContainer.chartCanvasElement;
 
@@ -43,19 +53,21 @@ export function renderMultiDayChart(inputData, location) {
     new Chart(ctx, config)
 }
 
-export function addChartToPage(endpoint, title = "TITLE" ) {
+export function addChartToPage(endpoint) {
     fetch(endpoint)
         .then(response => response.json())
-        .then(data => renderChart(data, title));
+        .then(data => renderChart(data));
 }
 
-function renderChart(inputData, title) {
+function renderChart(inputData) {
+    const last24Hours = inputData.history;
+    const title = inputData.data.name;
     const chartContainer = new ChartContainer();
     chartContainer.buildChartContainer(title)
 
     const ctx = chartContainer.chartCanvasElement;
 
-    const temperature = inputData.map(element => {
+    const temperature = last24Hours.map(element => {
         return {
             x: element.timestamp.substring(11),
             y: parseInt(element.temperature)

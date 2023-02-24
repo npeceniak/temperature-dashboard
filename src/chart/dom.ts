@@ -62,7 +62,7 @@ async function addDateRangeChart(dateArray, location){
 
     console.log(jsonArray)
 
-    renderMultiDayChart(jsonArray, location)
+    renderMultiDayChart(jsonArray)
 
 }
 
