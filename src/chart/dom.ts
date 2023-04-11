@@ -99,6 +99,9 @@ submit.addEventListener('click', event => {
     const endDate = Date.parse((document.getElementById("endDate") as HTMLInputElement).value);
     const dateRange = getDatesInRange(startDate, endDate)
 
+    console.log(dateRange);
+    debugger
+
     addDateRangeChart(dateRange, location.value)
 });
 
