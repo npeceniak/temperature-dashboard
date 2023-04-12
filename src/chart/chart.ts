@@ -75,7 +75,7 @@ function renderChart(inputData) {
 
     const temperature = last24Hours.map(element => {
         return {
-            x: getRoundedDate(5, new Date(element.timestamp)).toLocaleString(),
+            x: getRoundedDate(5, element.timestamp),
             y: parseInt(element.temperature)
         }
     })
@@ -102,7 +102,6 @@ export function renderOutdoorTemp(outdoorData){
     let title = "Outdoor Temperature";
     const now = new Date(Date.now())
 
-    console.log(outdoorData);
 
     const hourlyData = outdoorData.hourly;
 
@@ -112,9 +111,8 @@ export function renderOutdoorTemp(outdoorData){
     });
 
     const temperatureOutdoor = filterForcastData.map((element, index) => {
-        console.log("Filtered:", element, index)
         const graphData = {
-            x: new Date(element).toLocaleString(),
+            x: getRoundedDate(5, element),
             y: hourlyData.temperature_2m[index]
         }
         return graphData;
@@ -142,13 +140,18 @@ export function renderOutdoorTemp(outdoorData){
     new Chart(ctx, config)
 }
 
-function getRoundedDate(minutes, date) {
+function getRoundedDate(minutes, inputDate) {
+    const date = new Date(inputDate)
     console.log("Input Date", date)
 
     let ms = 1000 * 60 * minutes; // convert minutes to ms
     let roundedDate = new Date(Math.floor(date.getTime() / ms) * ms);
   
     console.log("Rounded Date", roundedDate)
-    return roundedDate
+    return formatDate(roundedDate)
+}
+
+function formatDate(date) {
+   return date.toLocaleString("en-US", {dateStyle: "short", timeStyle: "short", hour12: false})
 }
 

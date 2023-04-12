@@ -61,7 +61,6 @@ async function addDateRangeChart(dateArray, location){
 
     const jsonArray = responseArray.filter((e) => e.status === "fulfilled").map((response: any) => response.value)
 
-    console.log(jsonArray)
 
     renderMultiDayChart(jsonArray)
 
