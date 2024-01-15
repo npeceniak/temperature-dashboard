@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config webpack.config.js && npm run moveHtml",
     "moveHtml": "cp ./src/index.html ./src/index.css ./dist",
-    "deploy": "scp -r ./dist/. root@webserver.lan:/var/www/history"
+    "deploy": "scp -r ./dist/. root@webserver.lan:/var/www/dashboard"
   },
   "author": "",
   "license": "MIT",
